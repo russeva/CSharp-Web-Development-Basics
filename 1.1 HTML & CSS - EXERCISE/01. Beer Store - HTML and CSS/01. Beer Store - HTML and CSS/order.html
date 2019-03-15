@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="form.css" />
+    <title>Order a beer</title>
+</head>
+<body>
+    <nav>
+        <div class="topnav">
+            <a class="logo" href="index.html"><img src="My Project/MyExtensions/images/logo.png" /></a>
+            <a href="index.html">Home</a>
+            <a class="active"  href="all-beers.html">See All Beers</a>
+            <a href="order.html">Order a Beer</a>
+            <a class="right " href="register.html">Register!</a>
+            <a class="right" href="login.html">Log in</a>
+        </div>
+    </nav>
+    <main>
+       <center>
+           <h1>Order a beer</h1>
+           <br/>
+           <label>Brand</label>
+           <select>
+               <option disabled selected>Select a brand</option>
+               <option>Corona</option>
+               <option>Stella Artois</option>
+               <option>Carlsberg</option>
+               <option>Heineken</option>
+           </select>
+           <label>Quantity</label>
+           <input type="text" min="1" max="15" placeholder="Enter amount of quantity (1-15)"/>
+           <label>Destination</label>
+           <select>
+               <option>Varna</option>
+               <option>Sofia</option>
+               <option>Stara Zagora</option>
+               <option>Plovdiv</option>
+               <option>Shumen</option>
+           </select>
+           <label>Enter your birthday:</label>
+           <input type="text" placeholder="mm/dd/yyyy"/>
+           <label>Got an opinion, comment, recommendation?Share it with us!</label>
+           <textarea rows="10" cols="30" placeholder="Share your thoughts with us!"></textarea>
+           <input type="submit"  value="Send"/>
+       </center>
+    </main>
+    <footer>
+        <hr />
+        <p><i><em>&copy; 2019 &ndash; SoftUni Beers</em></i></p>
+    </footer>
+</body>
+</html>
