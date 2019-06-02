@@ -73,7 +73,7 @@
                 var headerKey = header.Key;
                 foreach (var headerValue in header.Value)
                 {
-                    result.AppendLine($"{headerKey}: {headerValue}");
+                    result.AppendLine($"{headerKey}: {headerValue.Value}");
                 }
             }
 
