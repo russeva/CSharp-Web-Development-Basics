@@ -30,10 +30,10 @@
 
             cakes.Add(newCake);
 
-            //using (var streamWriter = new StreamWriter(@"ByTheCakeApplication\Data\database.csv",true))
-            //{
-            //    streamWriter.WriteLine($"{{{cake}}},{{{price}}}");
-            //}
+            using (var streamWriter = new StreamWriter(@"..\\..\\..\\ByTheCakeApplication\\Data\\database.csv", true))
+            {
+                streamWriter.WriteLine($"{cake},{price}");
+            }
 
             return this.FileViewResponse(@"Cakes\addcake", new Dictionary<string, string>
             {
@@ -43,17 +43,17 @@
             });
         }
 
-        public IHttpResponse Search(IDictionary<string, string> urlParameters)
+        public IHttpResponse Search(IHttpRequest request)
         {
             const string searchTermKey = "searchTerm";
 
             var results = string.Empty;
 
-            if (urlParameters.ContainsKey("searchTerm"))
+            if (request.QueryParameters.ContainsKey("searchTerm"))
             {
-                var searchTerm = urlParameters[searchTermKey];
+                var searchTerm = request.QueryParameters[searchTermKey];
 
-                var savedCakesDivs = File.ReadAllLines(@"ByTheCakeApplication\Data\database.csv")
+                var savedCakesDivs = File.ReadAllLines(@"..\\..\\..\\ByTheCakeApplication\\Data\\database.csv")
                     .Where(line => line.Contains(','))
                     .Select(line => line.Split(','))
                     .Select(line => new Cake()
