@@ -107,7 +107,7 @@
 
                 var currentTokenWithoutCurlyBrackets = currentToken.Substring(1, currentToken.Length - 2);
 
-                result.Append($"{currentTokenWithoutCurlyBrackets} {end}");
+                result.Append($"{currentTokenWithoutCurlyBrackets}{end}");
             }
         }
     }
