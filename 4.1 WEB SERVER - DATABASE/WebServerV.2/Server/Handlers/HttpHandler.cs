@@ -25,14 +25,14 @@
         {
             try
             {
-            //    var loginPath = "/login";
+                var loginPath = "/login";
 
 
-            //    if (context.Request.Path != loginPath
-            //        && context.Request.Session.Contains(SessionStore.CurrentUserKey))
-            //    {
-            //        return new RedirectResponse(loginPath);
-            //    }
+                if (context.Request.Path != loginPath
+                    && !context.Request.Session.Contains(SessionStore.CurrentUserKey))
+                {
+                    return new RedirectResponse(loginPath);
+                }
 
                 var requestMethod = context.Request.Method;
                 var requestPath = context.Request.Path;
