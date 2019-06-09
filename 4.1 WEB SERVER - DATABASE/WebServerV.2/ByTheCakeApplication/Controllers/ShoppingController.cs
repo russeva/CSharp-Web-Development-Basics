@@ -70,8 +70,9 @@
             return this.FileViewResponse(@"shopping\cart");
         }
 
-        public IHttpResponse FinishOrder()
+        public IHttpResponse FinishOrder(IHttpRequest request)
         {
+            request.Session.Get<ShoppingCart>(ShoppingCart.SessionKey).Orders.Clear();
             return this.FileViewResponse(@"shopping\finish-order");
         }
 

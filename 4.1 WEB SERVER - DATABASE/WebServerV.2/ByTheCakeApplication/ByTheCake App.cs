@@ -41,7 +41,7 @@
                 .Get("/cart", req => new ShoppingController().ShowCart(req));
 
             appRouteConfig
-                .Post("/shopping/finish-order",req => new ShoppingController().FinishOrder());
+                .Post("/shopping/finish-order",req => new ShoppingController().FinishOrder(req));
 
            
         }           
