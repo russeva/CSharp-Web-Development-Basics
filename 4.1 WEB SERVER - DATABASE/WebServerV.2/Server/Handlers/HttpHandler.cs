@@ -25,15 +25,17 @@
         {
             try
             {
+                 var anonymousPaths = new[] { "/login", "/register"};
+
                 var loginPath = "/login";
 
+                var path = context.Request.Path != loginPath;
 
-                if (context.Request.Path != loginPath
-                    && !context.Request.Session.Contains(SessionStore.CurrentUserKey))
+                if (!anonymousPaths.Contains(context.Request.Path) &&
+                     (context.Request.Session == null || !context.Request.Session.Contains(SessionStore.CurrentUserKey)))
                 {
-                    return new RedirectResponse(loginPath);
+                    return new RedirectResponse(anonymousPaths.First());
                 }
-
                 var requestMethod = context.Request.Method;
                 var requestPath = context.Request.Path;
                 var registeredRoutes = this.serverRouteConfig.Routes[requestMethod];
